@@ -16,17 +16,17 @@ function calculate1() {
 	console.value = "";
 	var x = hands / (1 - 3.6 / 100 - (1 - 3.6 / 100) * 15 / 100)
 	var p = "";
-	p = p + "Отримує на руки чистими = " + hands + " !!!\n";
-	p = p + "Сума 'грязними': " + x + "\n";
+	p = p + "Отримує на руки чистими = " + round(hands) + " !\n";
+	p = p + "Сума 'грязними': " + round(x) + "\n";
 
 	var esv2 = x * 34.19 / 100
-	p = p + "Єдиний соц. взнос = " + esv2 + "\n";
+	p = p + "Єдиний соц. внесок від роботодавця (34.19) = " + round(esv2) + "\n";
 
 	var sum1 = x + esv2;
 	var pod = sum1 - hands;
 
 	console.value = p;
-	also(sum1, pod);
+	summary(sum1, pod);
 }
 
 function calculate2() {
@@ -38,32 +38,32 @@ function calculate2() {
 	}
 	var console = document.getElementById("console");
 	console.value = "";
-	var p = "Сума грязними: " + x + "\n";
+	var p = "Сума грязними: " + round(x) + "\n";
 	var esv1 = x * 3.6 / 100;
-	p = p + "Єдиний соц. взнос робітника = " + esv1 + "\n";
+	p = p + "Єдиний соц. внесок робітника (3.6) = " + round(esv1) + "\n";
 	var dfl = (x - esv1) * 15 / 100
-	p = p + "Податок на прибутки фіз. осіб = " + dfl + "\n";
+	p = p + "Податок на прибутки фіз. осіб (15) = " + round(dfl) + "\n";
 	var hands = x - esv1 - dfl;
-	p = p + "Отримує на руки чистими = " + hands + " !!!\n";
+	p = p + "\nОтримує на руки чистими = " + round(hands) + " !\n\n";
 	var esv2 = x * 34.19 / 100
-	p = p + "Єдиний соц. взнос від роботодавця = " + esv2 + "\n";
+	p = p + "Єдиний соц. внесок від роботодавця (34.19) = " + round(esv2) + "\n";
 
 	var sum1 = x + esv2;
 	var pod = sum1 - hands;
 
 	console.value = p;
-	also(sum1, pod);
+	summary(sum1, pod);
 }
 
-function also(sum1, pod) {
+function summary(sum1, pod) {
 	var console = document.getElementById("console");
 
 	var p = "";
-	p = p + "\nФірма виплачує загалом, без єдиного податку = " + sum1 + "\n";
+	p = p + "\nФірма виплачує загалом, без єдиного податку = " + round(sum1) + " !\n\n";
 	var ep = sum1 * 5 / 100;
-	p = p + "Єдиний податок (5%) = " + ep + "\n";
+	p = p + "Єдиний податок (5%) = " + round(ep) + "\n";
 
-	p = p + "Податки, без єдиного податку = " + pod + "\n\n";
+	p = p + "Податки, без єдиного податку = " + round(pod) + "\n\n";
 
 	sum1 = sum1  + ep;
 	pod = pod + ep;
@@ -73,12 +73,20 @@ function also(sum1, pod) {
 
 	var perc = pod / sum1 * 100;
 
-	p = p + "З " + rik_dn + " робочих днів податки це: " + pod_dn + " днів " + perc  + "% \n";
+	p = p + "З " + rik_dn + " робочих днів податки це: " + round2(pod_dn) + " днів " + round(perc)  + "% \n";
 	var mis_dn = 251/12;
 	var pod_m_dn = mis_dn * pod / sum1;
-	p = p + "З " + mis_dn + " робочих днів податки це: " + pod_m_dn + " днів \n";
+	p = p + "З " + round2(mis_dn) + " робочих днів податки це: " + round2(pod_m_dn) + " днів \n";
 
 	console.value = console.value + p;
+}
+
+function round(a) {
+	return Math.round(a * 100)/100;
+}
+
+function round2(a) {
+	return Math.round(a);
 }
 
 </script>
@@ -126,6 +134,8 @@ function also(sum1, pod) {
 </table>
 <textarea id="console" style="width:100%;height:20em;">
 </textarea>
+
+<p style="color:gray">ПДВ, що витрачається щодня на ряд послуг та товарів, не враховано.</p>
 
 </div>
 
