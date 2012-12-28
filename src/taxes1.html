@@ -1,0 +1,131 @@
+<html>
+
+<head>
+
+<script>
+
+function calculate1() {
+	var hands = document.getElementById("hands").value;
+	if ((0 + hands) == 0) {
+		alert("Can't be zero");
+		return;
+	}
+	var console = document.getElementById("console");
+	console.value = "";
+	var x = hands / (1 - 3.6 / 100 - (1 - 3.6 / 100) * 15 / 100)
+	var p = "";
+	p = p + "Отримує на руки чистими = " + hands + " !!!\n";
+	p = p + "Сума 'грязними': " + x + "\n";
+
+	var esv2 = x * 34.19 / 100
+	p = p + "Єдиний соц. взнос = " + esv2 + "\n";
+
+	var sum1 = x + esv2;
+	var pod = sum1 - hands;
+
+	console.value = p;
+	also(sum1, pod);
+}
+
+function calculate2() {
+	var x = document.getElementById("dirty").value;
+	x = 1 * x;
+	if (x == 0) {
+		alert("Can't be zero");
+		return;
+	}
+	var console = document.getElementById("console");
+	console.value = "";
+	var p = "Сума грязними: " + x + "\n";
+	var esv1 = x * 3.6 / 100;
+	p = p + "Єдиний соц. взнос робітника = " + esv1 + "\n";
+	var dfl = (x - esv1) * 15 / 100
+	p = p + "Податок на прибутки фіз. осіб = " + dfl + "\n";
+	var hands = x - esv1 - dfl;
+	p = p + "Отримує на руки чистими = " + hands + " !!!\n";
+	var esv2 = x * 34.19 / 100
+	p = p + "Єдиний соц. взнос від роботодавця = " + esv2 + "\n";
+
+	var sum1 = x + esv2;
+	var pod = sum1 - hands;
+
+	console.value = p;
+	also(sum1, pod);
+}
+
+function also(sum1, pod) {
+	var console = document.getElementById("console");
+
+	var p = "";
+	p = p + "\nФірма виплачує загалом, без єдиного податку = " + sum1 + "\n";
+	var ep = sum1 * 5 / 100;
+	p = p + "Єдиний податок (5%) = " + ep + "\n";
+
+	p = p + "Податки, без єдиного податку = " + pod + "\n\n";
+
+	sum1 = sum1  + ep;
+	pod = pod + ep;
+
+	var rik_dn = 251;
+	var pod_dn = rik_dn * pod / sum1;
+
+	var perc = pod / sum1 * 100;
+
+	p = p + "З " + rik_dn + " робочих днів податки це: " + pod_dn + " днів " + perc  + "% \n";
+	var mis_dn = 251/12;
+	var pod_m_dn = mis_dn * pod / sum1;
+	p = p + "З " + mis_dn + " робочих днів податки це: " + pod_m_dn + " днів \n";
+
+	console.value = console.value + p;
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div style="width:50%">
+
+<table style="width:100%">
+<tr>
+<td>
+	Бажаємо виплатити на руки:
+</td>
+<td>
+	<input id="hands" type="text" value="" style="width:100%"/>
+</td>
+
+<tr>
+<td>
+</td>
+<td>
+<input type="button" value="Результат" onclick="calculate1()" style="width:100%"/>
+</td>
+</tr>
+
+
+<td>
+	Бажаємо виплатити на руки 'грязними' (має бути не менше мінімальної зарплати 01.12.2012 1134 грн., повна занятість):
+</td>
+<td>
+	<input id="dirty" type="text" value="" style="width:100%"/>
+</td>
+
+</tr>
+
+<tr>
+<td>
+</td>
+<td>
+<input type="button" value="Результат" onclick="calculate2()" style="width:100%"/>
+</td>
+</tr>
+</table>
+<textarea id="console" style="width:100%;height:20em;">
+</textarea>
+
+</div>
+
+</body>
+</html>
