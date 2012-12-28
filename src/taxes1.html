@@ -1,6 +1,8 @@
-<html>
+п»ї<html>
 
 <head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
 <script>
 
@@ -14,11 +16,11 @@ function calculate1() {
 	console.value = "";
 	var x = hands / (1 - 3.6 / 100 - (1 - 3.6 / 100) * 15 / 100)
 	var p = "";
-	p = p + "Отримує на руки чистими = " + hands + " !!!\n";
-	p = p + "Сума 'грязними': " + x + "\n";
+	p = p + "РћС‚СЂРёРјСѓС” РЅР° СЂСѓРєРё С‡РёСЃС‚РёРјРё = " + hands + " !!!\n";
+	p = p + "РЎСѓРјР° 'РіСЂСЏР·РЅРёРјРё': " + x + "\n";
 
 	var esv2 = x * 34.19 / 100
-	p = p + "Єдиний соц. взнос = " + esv2 + "\n";
+	p = p + "Р„РґРёРЅРёР№ СЃРѕС†. РІР·РЅРѕСЃ = " + esv2 + "\n";
 
 	var sum1 = x + esv2;
 	var pod = sum1 - hands;
@@ -36,15 +38,15 @@ function calculate2() {
 	}
 	var console = document.getElementById("console");
 	console.value = "";
-	var p = "Сума грязними: " + x + "\n";
+	var p = "РЎСѓРјР° РіСЂСЏР·РЅРёРјРё: " + x + "\n";
 	var esv1 = x * 3.6 / 100;
-	p = p + "Єдиний соц. взнос робітника = " + esv1 + "\n";
+	p = p + "Р„РґРёРЅРёР№ СЃРѕС†. РІР·РЅРѕСЃ СЂРѕР±С–С‚РЅРёРєР° = " + esv1 + "\n";
 	var dfl = (x - esv1) * 15 / 100
-	p = p + "Податок на прибутки фіз. осіб = " + dfl + "\n";
+	p = p + "РџРѕРґР°С‚РѕРє РЅР° РїСЂРёР±СѓС‚РєРё С„С–Р·. РѕСЃС–Р± = " + dfl + "\n";
 	var hands = x - esv1 - dfl;
-	p = p + "Отримує на руки чистими = " + hands + " !!!\n";
+	p = p + "РћС‚СЂРёРјСѓС” РЅР° СЂСѓРєРё С‡РёСЃС‚РёРјРё = " + hands + " !!!\n";
 	var esv2 = x * 34.19 / 100
-	p = p + "Єдиний соц. взнос від роботодавця = " + esv2 + "\n";
+	p = p + "Р„РґРёРЅРёР№ СЃРѕС†. РІР·РЅРѕСЃ РІС–Рґ СЂРѕР±РѕС‚РѕРґР°РІС†СЏ = " + esv2 + "\n";
 
 	var sum1 = x + esv2;
 	var pod = sum1 - hands;
@@ -57,11 +59,11 @@ function also(sum1, pod) {
 	var console = document.getElementById("console");
 
 	var p = "";
-	p = p + "\nФірма виплачує загалом, без єдиного податку = " + sum1 + "\n";
+	p = p + "\nР¤С–СЂРјР° РІРёРїР»Р°С‡СѓС” Р·Р°РіР°Р»РѕРј, Р±РµР· С”РґРёРЅРѕРіРѕ РїРѕРґР°С‚РєСѓ = " + sum1 + "\n";
 	var ep = sum1 * 5 / 100;
-	p = p + "Єдиний податок (5%) = " + ep + "\n";
+	p = p + "Р„РґРёРЅРёР№ РїРѕРґР°С‚РѕРє (5%) = " + ep + "\n";
 
-	p = p + "Податки, без єдиного податку = " + pod + "\n\n";
+	p = p + "РџРѕРґР°С‚РєРё, Р±РµР· С”РґРёРЅРѕРіРѕ РїРѕРґР°С‚РєСѓ = " + pod + "\n\n";
 
 	sum1 = sum1  + ep;
 	pod = pod + ep;
@@ -71,10 +73,10 @@ function also(sum1, pod) {
 
 	var perc = pod / sum1 * 100;
 
-	p = p + "З " + rik_dn + " робочих днів податки це: " + pod_dn + " днів " + perc  + "% \n";
+	p = p + "Р— " + rik_dn + " СЂРѕР±РѕС‡РёС… РґРЅС–РІ РїРѕРґР°С‚РєРё С†Рµ: " + pod_dn + " РґРЅС–РІ " + perc  + "% \n";
 	var mis_dn = 251/12;
 	var pod_m_dn = mis_dn * pod / sum1;
-	p = p + "З " + mis_dn + " робочих днів податки це: " + pod_m_dn + " днів \n";
+	p = p + "Р— " + mis_dn + " СЂРѕР±РѕС‡РёС… РґРЅС–РІ РїРѕРґР°С‚РєРё С†Рµ: " + pod_m_dn + " РґРЅС–РІ \n";
 
 	console.value = console.value + p;
 }
@@ -90,7 +92,7 @@ function also(sum1, pod) {
 <table style="width:100%">
 <tr>
 <td>
-	Бажаємо виплатити на руки:
+	Р‘Р°Р¶Р°С”РјРѕ РІРёРїР»Р°С‚РёС‚Рё РЅР° СЂСѓРєРё:
 </td>
 <td>
 	<input id="hands" type="text" value="" style="width:100%"/>
@@ -100,13 +102,13 @@ function also(sum1, pod) {
 <td>
 </td>
 <td>
-<input type="button" value="Результат" onclick="calculate1()" style="width:100%"/>
+<input type="button" value="Р РµР·СѓР»СЊС‚Р°С‚" onclick="calculate1()" style="width:100%"/>
 </td>
 </tr>
 
 
 <td>
-	Бажаємо виплатити на руки 'грязними' (має бути не менше мінімальної зарплати 01.12.2012 1134 грн., повна занятість):
+	Р‘Р°Р¶Р°С”РјРѕ РІРёРїР»Р°С‚РёС‚Рё РЅР° СЂСѓРєРё 'РіСЂСЏР·РЅРёРјРё' (РјР°С” Р±СѓС‚Рё РЅРµ РјРµРЅС€Рµ РјС–РЅС–РјР°Р»СЊРЅРѕС— Р·Р°СЂРїР»Р°С‚Рё 01.12.2012 1134 РіСЂРЅ., РїРѕРІРЅР° Р·Р°РЅСЏС‚С–СЃС‚СЊ):
 </td>
 <td>
 	<input id="dirty" type="text" value="" style="width:100%"/>
@@ -118,7 +120,7 @@ function also(sum1, pod) {
 <td>
 </td>
 <td>
-<input type="button" value="Результат" onclick="calculate2()" style="width:100%"/>
+<input type="button" value="Р РµР·СѓР»СЊС‚Р°С‚" onclick="calculate2()" style="width:100%"/>
 </td>
 </tr>
 </table>
